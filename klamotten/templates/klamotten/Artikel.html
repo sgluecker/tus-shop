@@ -1,0 +1,23 @@
+{% extends 'klamotten/layout.html' %}
+{% load static %}
+{% block body %}
+    <!--<form action="tbd" method="post">
+        {% csrf_token %}
+        {% for Article in Articles %}
+            <h2> {{ Article.Name }} </h2>        
+            <img src= "{% static "klamotten/media/" %}{{ Article.Artikelnummer }}.png" alt="{{ Article.Name }}">
+            {{ Article }}
+            <select name="sizes">
+                {% for size in Article.Name %}
+                    <option value="{{ size }}">{{ size }}</option>
+                {% endfor %}
+            </select>
+        {% endfor %}
+        <select name="sizes">
+            {% for size in sizes %}
+                <option value="{{ size }}">{{ size }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>-->
+{% endblock  %}

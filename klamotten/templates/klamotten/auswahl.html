@@ -1,0 +1,16 @@
+{% extends 'klamotten/layout.html' %}
+{% load static %}
+{% block body %}
+    <form action="{% url 'add' article.Artikelnummer %}" method="post">
+        {% csrf_token %}        
+        <h2> {{ article.Name }} </h2>        
+        <img src= "{% static "klamotten/media/" %}{{ article.Artikelnummer }}.png" alt="{{ article.Name }}"><br/>
+        Größe
+        <select name="sizes">
+            {% for size in sizes %}
+                <option value="{{ size }}">{{ size }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock  %}

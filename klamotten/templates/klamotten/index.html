@@ -1,0 +1,29 @@
+{% extends 'klamotten/layout.html' %}
+{% load static %}
+{% block body %}
+    <h1>Artikel</h1>
+    <ul>
+        {% for article in articles %}
+            <li>
+                 
+                <a href="{% url 'Auswahl' article.Artikelnummer %}">
+                    {{article.Name }} Artikelnummer: {{ article.Artikelnummer }}
+                </a><br/>
+                <img src= "{% static "klamotten/media/" %}{{ article.Artikelnummer }}.png" alt="{{ article.Name }}">
+               
+            </li>
+        {% endfor %}
+    </ul>
+    <br/>
+    <h1>Ausgewählte Artikel</h1>
+    <ul>
+        {% for article_chosen in articles_chosen %}
+            <li> {{ article_chosen }} </li>
+        {% endfor %}
+    </ul>
+    <br/>
+    <form action="{% url 'clearbasket' %}" method="post">
+        {% csrf_token %}        
+        <input type="submit" value="Löschen">
+    </form>
+{% endblock %}
